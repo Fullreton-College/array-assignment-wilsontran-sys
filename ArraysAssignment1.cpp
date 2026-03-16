@@ -1,5 +1,8 @@
 //add includes
+#include <iostream>
 //add namespace declarations
+using namespace std;
+
 string lookupName(string targetName, string names[], string phoneNumbers[], int size);
 
 int main()
@@ -29,10 +32,32 @@ int main()
                       << endl;
          cout << "Look up another name? (y/n)"
               << endl;
-      cin > c;
+      cin >> c;
       cin.ignore();
  } while (c == 'y');
  return 0;
 }
 
-//complete lookupName unction
+//complete lookupName function
+string lookupName(string targetName, string names[], string phoneNumbers[], int size)
+{
+     int index = 0;
+     bool found = false;
+     while(!found)
+     {
+          if(targetName == names[index])
+               found = true;
+          else
+               index++;
+     }
+
+     if(found)
+     {
+          return phoneNumbers[index];
+     }
+     else
+     {
+          return "";
+     }
+
+}
